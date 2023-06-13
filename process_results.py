@@ -1,7 +1,7 @@
 import os
 import json
 
-def process_results(tests_directory):
+def process_results(tests_directory, num_tests, l_value, Q_value, command):
     avg_recv_values = []
 
     for root, dirs, files in os.walk(tests_directory):
@@ -19,6 +19,10 @@ def process_results(tests_directory):
 
     output_file = os.path.join(tests_directory, "avg_recv_results.txt")
     with open(output_file, "w") as file:
+        file.write(f"Number of tests: {num_tests}\n")
+        file.write(f"Max duration: {l_value} seconds\n")
+        file.write(f"Max QPS: {Q_value}\n")
+        file.write(f"Command: {command}\n")
         file.write(f"Average of all data: {average}\n")
         file.write("\n")
         for i, avg_recv in enumerate(avg_recv_values, start=1):

@@ -1,0 +1,1 @@
+Total average of all tests: 17370.57777790687
