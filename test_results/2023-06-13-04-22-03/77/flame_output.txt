@@ -1,0 +1,36 @@
+binding to 0.0.0.0
+flaming target(s) [10.244.160.173] on port 53 with 10 concurrent generators, each sending 10 queries every 1ms on protocol udp
+query generator [static] contains 1 record(s)
+rate limit @ 20000 QPS (2000 QPS per concurrent sender)
+0.976405s: send: 19520, avg send: 19520, recv: 13833, avg recv: 13833, min/avg/max resp: 0.536456/63.5308/279.71ms, in flight: 5693, timeouts: 0
+1.97642s: send: 20000, avg send: 19760, recv: 12460, avg recv: 13146, min/avg/max resp: 131.732/247.956/532.738ms, in flight: 13225, timeouts: 0
+2.97774s: send: 20000, avg send: 19840, recv: 12165, avg recv: 12819, min/avg/max resp: 269.253/436.004/683.553ms, in flight: 21052, timeouts: 0
+3.97803s: send: 20000, avg send: 19880, recv: 14601, avg recv: 13264, min/avg/max resp: 360.53/489.732/1082.34ms, in flight: 23335, timeouts: 3126
+4.97865s: send: 20000, avg send: 19904, recv: 11402, avg recv: 12891, min/avg/max resp: 420.904/615.359/1209.82ms, in flight: 26824, timeouts: 5109
+5.97876s: send: 20000, avg send: 19920, recv: 12323, avg recv: 12796, min/avg/max resp: 517.63/856.959/1723.89ms, in flight: 28678, timeouts: 5823
+6.97916s: send: 20000, avg send: 19931, recv: 12315, avg recv: 12727, min/avg/max resp: 516.523/820.301/1957.04ms, in flight: 32280, timeouts: 4083
+7.97975s: send: 20000, avg send: 19939, recv: 13115, avg recv: 12775, min/avg/max resp: 12.4387/563.858/1745.51ms, in flight: 32743, timeouts: 6422
+8.97953s: send: 20000, avg send: 19945, recv: 16022, avg recv: 13135, min/avg/max resp: 4.15888/80.2098/1303.31ms, in flight: 28767, timeouts: 7954
+9.97644s: send: 20000, avg send: 19950, recv: 15898, avg recv: 13411, min/avg/max resp: 2.61885/68.5338/1157.36ms, in flight: 32879, timeouts: 0
+stopping, waiting up to 3s for in flight to finish...
+12.9798s: send: 0, avg send: 19950, recv: 597, avg recv: 13411, min/avg/max resp: 23.34/0/49.8804ms, in flight: 0, timeouts: 32272
+
+------
+run id      : 7ffea6fe5a30
+run start   : 2023-06-13T04:39:30Z
+runtime     : 12.9798 s
+total sent  : 199520
+total rcvd  : 134731
+min resp    : 0.536456 ms
+avg resp    : 424.244 ms
+max resp    : 1957.04 ms
+avg r qps   : 13411
+avg s qps   : 19950
+avg pkt     : 37 bytes
+tcp conn.   : 0
+timeouts    : 64789 (32.4724%) 
+bad recv    : 0
+net errors  : 0
+responses   :
+  NOERROR: 124935
+  SERVFAIL: 9796
