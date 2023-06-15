@@ -1,17 +1,38 @@
 import os
 import json
 import time
+import argparse
+import configparser
 from datetime import datetime
 from constants import BASE_DIRECTORY, PATTERN
 from rich.progress import Progress
 
+import configparser
+
 def run_tests(num_tests):
-    l_value = input("Please enter the maximum duration (in seconds) for traffic generation (default is 10): ") or "10"
-    Q_value = input("Please enter the maximum queries per second (QPS) for traffic generation (default is 20000): ") or "20000"
-    ip_address = input ("Please enter the IP address that you would like to send queries to: ")
+    # Argument parsing
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--MaxDuration', type=int, help='Maximum duration (in seconds) for traffic generation.')
+    parser.add_argument('--MaxQPS', type=int, help='Maximum queries per second (QPS) for traffic generation.')
+    parser.add_argument('--IPAddress', type=str, help='IP address that you would like to send queries to.')
+    args = parser.parse_args()
+
+    # Config file parsing
+    config = configparser.ConfigParser()
+    if not os.path.exists('config.ini'):
+        print('Warning: config.ini not found. Using default settings and/or command line arguments.')
+    else:
+        try:
+            config.read('config.ini')
+        except configparser.Error as e:
+            print(f'Warning: Failed to parse config.ini: {e}. Using default settings and/or command line arguments.')
+
+    l_value = args.MaxDuration or config.get('Settings', 'MaxDuration', fallback='10')
+    Q_value = args.MaxQPS or config.get('Settings', 'MaxQPS', fallback='20000')
+    ip_address = args.IPAddress or config.get('Settings', 'IPAddress', fallback='10.244.160.173')
 
     total_time_sec = num_tests * int(l_value)
-    total_time_sec += round(total_time_sec * 0.2)  # Add 20% buffer time
+    total_time_sec += round(total_time_sec * 0.3)  # Add 30% buffer time
 
     total_time_min = total_time_sec // 60
     remaining_sec = total_time_sec % 60
