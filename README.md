@@ -30,16 +30,15 @@ You can use a `config.ini` file to set your preferences for the maximum duration
 MaxDuration = 10
 MaxQPS = 20000
 IPAddress = 10.244.160.173
-
+```
 The script will use these values unless they are overridden by command-line arguments.
 Command-Line Arguments
 
 You can also provide command-line arguments to override the settings in the configuration file or the default values. Use the following syntax:
 
-shell
-
+```ini
 python run_tests.py --MaxDuration 15 --MaxQPS 25000 --IPAddress 192.168.1.1
-
-Result Processing
+```
+## Result Processing
 
 The process_results.py script processes the results of the tests and writes a summary to a file named avg_recv_results.txt. This includes the number of tests run, the maximum duration, the maximum QPS, the command used to run the tests, and the average number of received queries. It also includes a list of the average number of received queries from each test.
