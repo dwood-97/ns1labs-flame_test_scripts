@@ -6,8 +6,8 @@ from constants import BASE_DIRECTORY, PATTERN
 from rich.progress import Progress
 
 def run_tests(num_tests):
-    l_value = input("Please enter the maximum duration (in seconds) for traffic generation. Enter 0 for unlimited duration: ") or "10"
-    Q_value = input("Please enter the maximum queries per second (QPS) for traffic generation. Enter 0 for no rate limit: ") or "20000"
+    l_value = input("Please enter the maximum duration (in seconds) for traffic generation (default is 10): ") or "10"
+    Q_value = input("Please enter the maximum queries per second (QPS) for traffic generation (default is 20000): ") or "20000"
 
     total_time_sec = num_tests * int(l_value)
     total_time_sec += round(total_time_sec * 0.2)  # Add 20% buffer time
