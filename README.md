@@ -29,7 +29,7 @@ You can use a `config.ini` file to set your preferences for the maximum duration
 [Settings]
 MaxDuration = 10
 MaxQPS = 20000
-IPAddress = 10.244.160.173
+IPAddress = <ip_address>
 ```
 The script will use these values unless they are overridden by command-line arguments.
 Command-Line Arguments
