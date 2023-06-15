@@ -1,7 +1,9 @@
 import os
 
 def calculate_total_average():
-    test_results_directory = "/home/operations/ns1labs-flame_test_scripts/test_results"
+    # Get the directory of the current script
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    test_results_directory = os.path.join(current_directory, "test_results")
     total_values = []
 
     # Iterate over all directories in test_results
