@@ -10,21 +10,14 @@ def process_results(tests_directory, num_tests, l_value, Q_value, command):
                 with open(file_path, "r") as file:
                     results = json.load(file)
                     avg_recv = results.get("avg_recv")
-                    if isinstance(avg_recv, int):
-                        avg_recv_values.append(avg_recv)
+                    if isinstance(avg_recv, list) and len(avg_recv) > 0:
+                        test_average = sum(avg_recv) / len(avg_recv)
+                        avg_recv_values.append(test_average)
 
     if avg_recv_values:
         overall_average = sum(avg_recv_values) / len(avg_recv_values)
     else:
         overall_average = 0.0
 
-    output_file = os.path.join(tests_directory, "avg_recv_results.txt")
-    with open(output_file, "w") as file:
-        file.write(f"Number of tests: {num_tests}\n")
-        file.write(f"Max duration: {l_value} seconds\n")
-        file.write(f"Max QPS: {Q_value}\n")
-        file.write(f"Command: {command}\n")
-        file.write(f"Average of all data: {overall_average}\n")
-        file.write("\n")
-        for i, avg_recv in enumerate(avg_recv_values, start=1):
-            file.write(f"Test {i} average: {avg_recv}\n")  # Write the average of each test
+    print(f"\nAverage of all data: {overall_average}")
+    print ("----------------------------------------------------------------")

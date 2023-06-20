@@ -79,8 +79,9 @@ def run_tests(num_tests):
     if remaining_sec > 0:
         total_time_str += f" {remaining_sec} second{'s' if remaining_sec != 1 else ''}"
 
+    print ("\n----------------------------------------------------------------")
     print(
-        f"Running {num_tests} tests. This will take approximately {total_time_str}. Please wait..."
+        f"Running {num_tests} tests. This will take approximately {total_time_str}. Please wait...\n"
     )
 
     current_date = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
