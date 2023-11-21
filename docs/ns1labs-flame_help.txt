@@ -1,4 +1,4 @@
-operations@mediumspvm:~/ns1labs-flame_test_scripts$ docker run ns1labs/flame --help
+$ docker run ns1labs/flame --help
 Flamethrower.
     Usage:
       flame [-b BIND_IP] [-q QCOUNT] [-c TCOUNT] [-p PORT] [-d DELAY_MS] [-r RECORD] [-T QTYPE]
